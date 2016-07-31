@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html ng-app="wordList" ng-cloak ng-class="animation">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <meta name="format-detection" content="telephone=no" />
+
+        <link rel="shortcut icon" href="/" />
+        <!-- build:css css/combined.css -->
+        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+        <link href="css/angular-dropdowns.min.css" rel="stylesheet" type="text/css" />
+        <!-- endbuild -->
+        <!-- build:css css/styles.css -->
+        <link href="css/styles.css" rel="stylesheet" type="text/css" />
+        <!-- endbuild -->
+        <title>WordList</title>
+    </head>
+
+    <body>
+
+
+
+        <!-- MAIN -->
+        <main class="wl-main">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <section class="wl-main-content">
+                            <div ng-view class="view">
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- SIDEBAR -->
+        <aside class="wl-sidebar">
+            <a href="index.html" class="wl-logo"><img src="img/logo.png" alt=""></a>
+            <nav class="wl-navigation">
+               <ul>
+                   <li><a href="#/">Home</a></li>
+                   <li><a href="/">Start</a></li>
+                   <li><a href="#">Word Packs</a></li>
+                   <li><a href="#">Contact</a></li>
+               </ul> 
+            </nav>
+        </aside>
+
+
+        <!-- build:js js/combined.js -->
+        <script src="js/jquery-2.2.3.min.js"></script>
+        <script src="js/angular.min.js"></script>
+        <script src="//code.angularjs.org/1.5.5/angular-route.js"></script>
+        <script src="//code.angularjs.org/1.5.5/angular-animate.js"></script>
+        <script src="js/angular-dropdowns.min.js"></script>
+        <!-- endbuild -->
+        <!-- build:js js/app.js -->
+        <script src="app.js"></script>
+        <!-- endbuild -->
+
+    </body>
+
+</html>

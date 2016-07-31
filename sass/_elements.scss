@@ -1,0 +1,295 @@
+/*--------------------------------------------------------------------------*/
+/* ELEMENTS */
+/*--------------------------------------------------------------------------*/
+
+
+
+/*--------------------------------------------------------------------------*/
+/* MAIN */
+/*--------------------------------------------------------------------------*/
+.wl-main{
+    position: relative;
+    height: 100vh;
+    background: url(../img/bg.jpg) no-repeat 0 0;
+    background-size: cover;
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255,255,255,.65);
+    }
+}
+
+.wl-main-content{
+    position: relative;
+    margin-top: 150px;
+    padding: 50px 30px;
+    z-index: 5;
+    background: rgba(248,248,248,.8);
+    .content-title{
+        font-size: 30px;
+        color: #333;
+        text-align: center;
+    }
+}
+
+/*--------------------------------------------------------------------------*/
+/* SIDEBAR */
+/*--------------------------------------------------------------------------*/
+.wl-sidebar{
+    position: fixed;
+    padding: 20px 15px;
+    top: 0;
+    left: 0;
+    width: 260px;
+    height: 100%;
+    background: rgba(3,155,229,.65);
+    z-index: 10;
+    .wl-logo{
+        display: inline-block;
+    }
+    
+    .wl-navigation{
+        margin-top: 20px;
+        padding-top: 30px;
+        border-top: 1px solid #fff;
+        li{
+            display: block;
+            margin-bottom: 10px;
+        }
+        a{
+            color: #fff;
+            font-size: 18px;
+            font-weight: 300;
+            @extend .wl-trans;
+            &:hover{
+                color: rgba(255,255,255,.5);
+            }
+        }
+    }
+}
+
+
+
+/*--------------------------------------------------------------------------*/
+/* BUTTONS */
+/*--------------------------------------------------------------------------*/
+.wl-btn{
+    display: inline-block;
+    padding: 14px 15px;
+    min-width: 120px;
+    background: $main-accent;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    color: #fff;
+    border: none;
+    border-bottom: 3px solid #ff9f3d;
+    transition: all ease-out .2s;
+    
+    &:hover{
+        -webkit-box-shadow: inset 0px 47px 0px 0 rgba(255,255,255,0.4);
+        -moz-box-shadow: inset 0px 47px 0px 0 rgba(255,255,255,0.4);
+        box-shadow: inset 0px 47px 0px 0 rgba(255,255,255,0.4);
+    }
+}
+
+.wl-btn.style-2{
+    display: inline-block;
+    min-width: 70px;
+    font-size: 14px;
+    padding: 10px 10px;
+    font-weight: 500;
+}
+
+
+
+/*--------------------------------------------------------------------------*/
+/* FORM ELEMENTS */
+/*--------------------------------------------------------------------------*/
+.wl-checkbox{
+    display: none;
+}
+
+.wl-checkbox:checked + .wl-check-label .wl-cst-checkbox:after{
+    background-color: $main-accent;
+    transform: scale(1);
+}
+
+.wl-check-label{
+    display: block;
+    margin-top: 12px;
+    font-size: 16px;
+    color: #333333;
+    cursor: pointer;
+    line-height: 20px;
+    .wl-cst-checkbox{
+        display: inline-block;
+        width: 18px;
+        height: 18px;
+        margin-right: 10px;
+        border: 2px solid $main-accent;
+        vertical-align: middle;
+        &:after{
+            content: "";
+            margin-top: 2px;
+            display: block;
+            height: 10px;
+            width: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 50%;
+            background-color: transparent;
+            transform: scale(0);
+            @extend .wl-trans;
+        }
+    }
+}
+
+
+/* custom select */
+.wl-select-label{
+    display: block;
+    margin: 40px 0 10px;
+    font-size: 14px;
+    color: #333;
+}
+
+.wrap-dd-select{
+    color: #333;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 0;
+    border: none;
+    @extend .font-1;
+}
+
+.wrap-dd-select .dropdown{
+    border: none;
+}
+
+.wrap-dd-select .dropdown li a{
+    color: #333;
+    font-size: 16px; 
+}
+
+.wrap-dd-select:after{
+    border-color: $main-accent transparent;
+}
+
+
+/* textarea */
+.wl-wordsarea-label{
+    display: block;
+    margin: 10px 0 10px;
+    font-size: 14px;
+    color: #333;
+    line-height: 20px;
+}
+
+.wl-wordsarea{
+    padding: 10px;
+    min-height: 160px;
+    background: #fff;
+    font-style: italic;
+    resize: vertical;
+    width: 100%;
+    border: none;
+    font-weight: 300;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 1px 1px rgba(50,50,50,.1);
+    outline: none;
+    border: 1px solid #fff;
+    @extend .wl-trans;
+    &:focus{
+        border: 1px solid $main-accent;
+    }
+}
+
+
+.wl-wordsarea::-webkit-input-placeholder, .wl-wordsarea:-moz-placeholder,  .wl-wordsarea::-moz-placeholder, .wl-wordsarea:-ms-input-placeholder{
+    color: 9f9f9f;
+}
+
+
+/* text inputs */
+.wl-input{
+    max-width: 150px;
+    padding: 10px;
+    background: #fff;
+    font-style: italic;
+    resize: vertical;
+    border: none;
+    font-weight: 300;
+    font-size: 14px;
+    color: #333;
+    box-shadow: 0 1px 1px rgba(50,50,50,.1);
+    outline: none;
+    border: 1px solid #fff;
+    @extend .wl-trans;
+    &:focus{
+        border: 1px solid $main-accent;
+    }
+}
+
+/* added pairs wrap */
+.wl-added-pairs{
+    margin-top: 10px;
+    .added-pair{
+        font-size: 16px;
+        color: #333333;
+        cursor: pointer;
+        line-height: 20px; 
+        
+        &:not(:last-child){
+            margin-bottom: 5px;    
+        }
+        
+        span.close{
+            position: relative;
+            top: 2px;
+            margin-right: 10px;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            color: $main-accent;
+            float: left;
+            @extend .wl-trans;
+            &:hover{
+                color: #333333;
+            }
+        }
+    }
+}
+
+
+
+/*--------------------------------------------------------------------------*/
+/* ANIMATIONS */
+/*--------------------------------------------------------------------------*/
+/* Default view */
+.view{
+  transition: all ease .3s;
+}
+
+/* First animation*/
+.fadeIn .view.ng-enter{
+  opacity: 0;
+}
+
+.fadeIn .view.ng-enter.ng-enter-active{
+  opacity: 1;
+}
+
+.fadeIn .view.ng-leave{
+  display: none;
+}
+
+.fadeIn .view.ng-leave.ng-leave-active{
+  opacity: 0
+}

@@ -1,0 +1,64 @@
+<h2 class="content-title">Choose input type</h2>
+<div class="marg-lg-t40">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <section class="option">
+                    <form action="/">
+                       <fieldset>
+                            <input type="radio" id="wordGroupsBtn" name="radio" class="wl-checkbox" ng-checked="1" ng-model="optionsRadio" value="group" 
+                            ng-change="RadioChange(optionsRadio)"/>
+                            <label for="wordGroupsBtn" class="wl-check-label"><span class="wl-cst-checkbox"></span>Word massive</label>
+                        </fieldset>
+                        <fieldset>
+                            <input type="radio" id="wordPairsBtn" name="radio" class="wl-checkbox" ng-model="optionsRadio" value="pair"
+                            ng-change="RadioChange(optionsRadio)"/>
+                            <label for="wordPairsBtn" class="wl-check-label"><span class="wl-cst-checkbox"></span>Word pair</label>
+                        </fieldset>
+                        <fieldset>
+                            <label for="wordGroupsBtn" class="wl-select-label">Choose saved list of words</label>
+                                <div dropdown-select="ddSelectOptions"
+                                    dropdown-model="ddSelectSelected"
+                                    dropdown-item-label="text" >
+                                </div>
+                        </fieldset>
+                    </form>
+                </section>    
+            </div>
+            <div class="col-sm-12 col-md-7">
+                <form action="/" >
+                    <!--          word massive          -->
+                    <fieldset ng-hide="!choosenRadio" class="wl-words-inline">
+                        <textarea name="wordsTextarea" id="wordsTextarea" class="wl-wordsarea" placeholder="Insert words here"></textarea>
+                        <label for="wordsTextarea" class="wl-wordsarea-label">Input word pairs like: Success - Успіх, Force - Сила  separated by comma</label>
+                    </fieldset>
+                    
+                    
+                    <!--          word pairs          -->
+                    <fieldset ng-hide="choosenRadio" class="wl-words-pairs">
+                        <input type="text" class="wl-input" placeholder="Input" ng-model="pair.first"> - <input type="text" class="wl-input" placeholder="Output" ng-model="pair.second">
+                        <div class="error-message"></div>
+                        <label for="wordPairs" class="wl-wordsarea-label">Input word pairs like: Success - Успіх, Force - Сила  separated by comma</label>
+                        <a href="#options" class="wl-btn style-2" ng-click="addPairs($event, pair)">Add words</a>
+                        
+                        <!--          added pairs          -->
+                        <div class="wl-added-pairs">
+                        </div>
+                        
+                        
+                        <div class="wl-save-list ng-hide marg-lg-t20" ng-show="pairsArr.length > 1">
+                            <input type="text" class="wl-input" placeholder="List name" ng-model="pair.first">
+                            
+                            <button class="wl-btn style-2" ng-click="saveList($event)" type="button">Save list</button>
+                        </div>
+                    </fieldset>
+                    
+                    
+                    <fieldset class="text-center marg-lg-t50">
+                        <a href="#options" class="wl-btn">Start learn!</a>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
