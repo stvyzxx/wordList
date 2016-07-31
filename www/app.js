@@ -52,6 +52,7 @@ wordList.controller('optionsController', function($scope, $rootScope, $compile){
     //words to array
     $rootScope.pairsArr = [];
     $rootScope.pairId = 0;
+    $rootScope.clearedArr;
     
     $scope.addPairs = function($event, pair){
         if(pair.first == null || pair.second == null) return false;
@@ -66,6 +67,12 @@ wordList.controller('optionsController', function($scope, $rootScope, $compile){
         addedPairs.append(newDirective);
         $scope.pair = '';
         $rootScope.pairId += 1;
+        
+        //deleting element and word pair in pairs object
+        $rootScope.clearedArr = $rootScope.pairsArr.filter(function(el) {
+            // keep element if it's not an object, or if it's a non-empty object
+            return typeof el != "object" || Array.isArray(el) || Object.keys(el).length > 0;
+        });
     };
         
     
@@ -74,7 +81,7 @@ wordList.controller('optionsController', function($scope, $rootScope, $compile){
     $scope.saveList = function(){
         $rootScope.wordLists.name = $rootScope.pairsArr;
         localStorage["wordLists"] = JSON.stringify($rootScope.wordLists);
-    }
+    };
  
 });
 
@@ -108,15 +115,19 @@ wordList.directive('wordsPair', function($rootScope){
             scope.firstWord = scope.dirPair.first;
             scope.secondWord = scope.dirPair.second;
             scope.pairId = scope.dirPair.id;
-            
-            //deleting element and word pair in pairs object
+
             element.on('click', '.close', function() {
                 element.remove();
                 scope.$destroy();
                 
                 //remove words pair from main array
                 removePair($rootScope.pairsArr, scope.pairId);
-                console.log($rootScope.pairsArr);
+                $rootScope.clearedArr = $rootScope.pairsArr.filter(function(el) {
+                    // keep element if it's not an object, or if it's a non-empty object
+                    return typeof el != "object" || Array.isArray(el) || Object.keys(el).length > 0;
+                });
+                
+                console.log($rootScope.clearedArr);
             });
             
             
@@ -132,6 +143,7 @@ wordList.directive('wordsPair', function($rootScope){
                       delete arr[i];
                   }
                 }
+              
               }
             }
             

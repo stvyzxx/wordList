@@ -44,11 +44,9 @@
                         <!--          added pairs          -->
                         <div class="wl-added-pairs">
                         </div>
-                        
-                        
-                        <div class="wl-save-list ng-hide marg-lg-t20" ng-show="pairsArr.length > 1">
+                        <!--          save list          -->
+                        <div class="wl-save-list ng-hide marg-lg-t20" ng-show="clearedArr.length >= 2" >
                             <input type="text" class="wl-input" placeholder="List name" ng-model="pair.first">
-                            
                             <button class="wl-btn style-2" ng-click="saveList($event)" type="button">Save list</button>
                         </div>
                     </fieldset>
